@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cont {
+    border: 2px solid black;
+    padding: 10px;
+    width: fit-content;
+    height: fit-content;
+    text-align: center;
+    }
+
+    img {
+        width: 300px;
+        height: 300px;
+    }
+    .cont div {
+    display: flex;
+    justify-content: center;
+}
+
+
+    </style>
+
+</head>
+<body>
+    <button id="btn" onclick="cng()">Click</button>
+
+    <div class="container">
+        <div class="cont">
+            <img src="shinchan.jpg" alt="Shinchan" />
+            <div><p class="price">€price=200</p></div>
+            <div><h4 class="title">Shinchan</h4></div> 
+        </div>
+
+        <div class="cont">
+            <img src="shinchan.jpg" alt="Shinchan" />
+            <div><p class="price">€price=200</p></div>
+            <div><h4 class="title">Shinchan</h4></div> 
+        </div>
+
+        <div class="cont">
+            <img src="shinchan.jpg" alt="Shinchan" />
+            <div><p class="price">€price=200</p></div>
+            <div><h4 class="title">Shinchan</h4></div> 
+        </div>
+    </div>
+
+    <script>
+
+        document.body.style.display="flex";
+        document.body.style.flexDirection="column";
+        document.body.style.alignItems="center";
+        document.body.style.justifyContent="center";
+        document.body.style.gap="20px";
+
+
+        const btn = document.querySelector("#btn");
+        btn.style.fontSize="30px";
+        btn.style.border="2px solid black";
+        btn.style.padding="10px 475px";
+        btn.style.backgroundColor="gray";
+        btn.style.borderRadius="5px";
+
+        const wrapper = document.querySelector(".container");
+        wrapper.style.display = "flex";
+        wrapper.style.justifyContent = "center";
+        wrapper.style.alignItems = "center";
+        wrapper.style.gap = "20px";
+
+
+        function cng() {
+            const imgs = document.querySelectorAll(".cont img");
+            const prices = document.querySelectorAll(".price");
+            const titles = document.querySelectorAll(".title");
+
+            for (let i = 0; i < imgs.length; i++) {
+                imgs[i].setAttribute(
+                    "src",
+                    "https://media-cdn.socastsrm.com/wordpress/wp-content/blogs.dir/2511/files/2024/01/mickey-mouse-7230486-1280.png"
+                );
+                prices[i].innerText = "€price=400";
+                titles[i].innerText = "Mickey Mouse";
+            }
+        }
+    </script>
+</body>
+</html>
