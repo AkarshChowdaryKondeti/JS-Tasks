@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .parent {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 50px;
+        }
+        .child {
+            padding: 10px;
+            font-size: 30px;
+            
+
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    async function stock() {
+        let input=prompt('Enter Stock symbol');
+        let link=await fetch(`https://api.freeapi.app/api/v1/public/stocks/${input}`);
+        let data=await link.json();
+        console.log(data)
+    
+    
+        var maincontainer=document.createElement('div');
+        maincontainer.classList.add('parent');
+        document.body.append(maincontainer);
+
+        var card=document.createElement('div');
+        card.classList.add('child');
+
+        var Name=document.createElement('p');
+        Name.innerText="Stock Name:"+data.data.Name;
+        console.log(Name)
+
+
+        var Symbol=document.createElement('p');
+        Symbol.innerText="Symbol:"+data.data.Symbol;
+
+        var CurrentPrice=document.createElement('p');
+        CurrentPrice.innerText="Current Price:"+data.data.CurrentPrice;
+
+        card.append(Name, Symbol, CurrentPrice);
+        maincontainer.append(card);
+    }
+
+    stock();
+</script>
+
+</body>
+</html>
