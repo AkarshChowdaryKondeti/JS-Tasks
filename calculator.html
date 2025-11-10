@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Calculator</title>
+  <style>
+    .con {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 100px;
+      left: 300px;
+    }
+    .btns {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 5px;
+    }
+    input.disp {
+      height: 65px;
+      width: 315px;
+      border: 2px solid black;
+      font-size: 25px;
+      text-align: right;
+      padding: 17px;
+      margin: 10px;
+      box-sizing: border-box;
+      background-color: rgb(235, 235, 235);
+    }
+    button {
+      height: 50px;
+      width: 75px;
+      font-size: 25px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="con">
+    <input type="text" class="disp" id="display" readonly>
+    <div class="btns">
+      <button onclick="btn(1)">1</button>
+      <button onclick="btn(2)">2</button>
+      <button onclick="btn(3)">3</button>
+      <button onclick="btn('+')">+</button>
+
+      <button onclick="btn(4)">4</button>
+      <button onclick="btn(5)">5</button>
+      <button onclick="btn(6)">6</button>
+      <button onclick="btn('*')">*</button>
+
+      <button onclick="btn(7)">7</button>
+      <button onclick="btn(8)">8</button>
+      <button onclick="btn(9)">9</button>
+      <button onclick="btn('-')">-</button>
+
+      <button onclick="clr()">C</button>
+      <button onclick="btn('0')">0</button>
+      <button onclick="deldata()">Del</button>
+      <button onclick="btn('/')">/</button>
+
+      <button onclick="cal()">=</button>
+    </div>
+  </div>
+
+  <script>
+    let inp = document.querySelector('#display');
+
+    function btn(n){
+      inp.value+=n;
+    }
+
+    function clr(){
+      inp.value="";
+    }
+
+    function cal(){
+        try{
+            inp.value=eval(inp.value);
+        }
+        catch{
+            inp.value="Undefined";
+        }
+      
+    }
+
+    function deldata(){
+        inp.value=inp.value.slice(0,inp.value.length-1);
+    }
+  </script>
+</body>
+</html>
