@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Color Changer</title>
+    <style>
+        .con {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: #d2d0d0;
+            padding: 20px 30px;
+            border-radius: 12px;
+            width: fit-content;
+            margin: 150px auto;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="con">
+        <input type="color" value="#3498db" class="clr">
+        <h1>Hello Mr.Hashtag...#</h1>
+    </div>
+
+    <script>
+        let color=document.querySelector('.clr');
+        let title=document.querySelector('h1');
+        let body = document.body;
+        color.addEventListener('input',()=>title.style.color=color.value);
+        body.addEventListener('input',()=>body.style.backgroundColor=color.value);
+
+    </script>
+</body>
+</html>
