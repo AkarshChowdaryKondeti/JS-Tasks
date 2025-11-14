@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 1.add
+    2.disp
+    3.modify
+    4.del
+    5.sort
+    6.reverse
+    7.exit -->
+
+
+    <script>
+        var arr=['jessy']
+        let flag=true;
+
+
+        while(flag){
+
+        inp=prompt(`Enter num bw 1-8:`)
+        switch (inp) {
+            case '1':
+                let newdata=prompt('enter name:')
+                arr.push(newdata)
+                console.log('new name added...');
+                break;
+            case '2':
+                console.log(arr);
+                break;
+            case '3':
+                let modiname=prompt('enter which name to modify:')
+                if(arr.includes(modiname)){
+                   let i=arr.indexOf(modiname);
+                    let newname=prompt('Enter new name:');
+                    arr[i] = newname;
+                    console.log('Name modified successfully.');
+                }else{console.log('name not fount')}
+                break;
+            case '4':
+                let delname=prompt('enter which name to delete:')
+                if(arr.includes(delname)){
+                    arr.splice(arr.indexOf(delname),1)
+                    console.log('name deleted...')
+                }else{console.log('name not fount')}
+                break;
+            case '5':
+                arr.sort()
+                console.log(arr)
+                break;
+            case '6':
+                arr.reverse()
+                console.log(arr)
+                break;
+            case '7':
+                console.log('Exiting program...');
+                alert('Goodbye!');
+                flag=false;
+            break;
+            default:
+                console.log('Invalid option. Please enter 1–8.');
+            }
+
+        }
+    </script>
+</body>
+</html>
